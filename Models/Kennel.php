@@ -15,7 +15,7 @@ include_once __DIR__."/Item.php";
 
         public function getInfos() {
             $inOrOut = $this->isIndoor ? "SOLO PER INTERNI" : "SOLO PER ESTERNI";
-            return parent::getInfos()." ".$this->description." ".$this->size."cm. $inOrOut";
+            return $inOrOut;
         }
     }
 ?>

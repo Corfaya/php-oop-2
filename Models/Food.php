@@ -14,14 +14,15 @@
 
         public function getOptionSterility() {
             if($this->isForSterilised) {
-                return "Adatto ad animali sterilizzati.";
+                return "PER ANIMALI NON STERILIZZATI";
             } else {
-                return "Non adatto ad animali sterilizzati.";
+                return "PER ANIMALI STERILIZZATI";
             }
         }
 
         public function getInfos() {
-            return parent::getInfos()." ".$this->description." ".$this->getOptionSterility();
+            $sterilityInfo = $this->getOptionSterility();
+            return $sterilityInfo;
         }
     }
 ?>
