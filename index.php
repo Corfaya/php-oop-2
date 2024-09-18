@@ -28,7 +28,7 @@
 
         public function getInfos()
         {
-            return $this->image . " " . $this->title . " " . $this->price . "€ " . $this->category->animal ." ". $this->type;
+            return $this->image . " " . $this->title . " " . $this->price . "€ " . $this->category->icon ." ". $this->type;
         }
     }
 
@@ -53,7 +53,7 @@
         }
 
         public function getInfos() {
-            return $this->description." ".$this->getOptionSterility();
+            return parent::getInfos()." ".$this->description." ".$this->getOptionSterility();
         }
     }
 
@@ -68,7 +68,7 @@
         }
 
         public function getInfos() {
-            return $this->description;
+            return parent::getInfos()." ".$this->description;
         }
     }
 
@@ -87,31 +87,31 @@
 
         public function getInfos() {
             $inOrOut = $this->isIndoor ? "SOLO PER INTERNI" : "SOLO PER ESTERNI";
-            return $this->description." ".$this->size." cm. $inOrOut";
+            return parent::getInfos()." ".$this->description." ".$this->size."cm. $inOrOut";
         }
     }
 
-    // objects from Category
-    $dog = new Category("icona", "cane");
-    $cat = new Category("icona", "gatto");
-    var_dump($dog);
-    var_dump($cat);
+    // objects from Category (dog and cat)
+    $dog = new Category("🐕", "cane");
+    $cat = new Category("🐈", "gatto");
 
-    // object from Food
+    // Objects
     $catFood = new Food("https://placehold.co/600x400?text=Cibo+gatti", "Umido monoproteico", "18,99", $cat, "cibo", "Umido completo e bilanciato. Ricette preparate rispondendo ad esigenze specifiche per gatti sterilizzati.", true);
-    var_dump($catFood->getInfos());
 
-    // object from Toy
+    $dogFood = new Food("https://placehold.co/600x400?text=Cibo+cani", "Croccantini per cani", "13,50", $dog, "cibo", "Un alimento completo per cani adulti, prodotto in Italia, altamente diferibile e appetibile grazie alla presenza di carne fresca.", false);
+
+    $catToy = new Toy("https://placehold.co/600x400?text=Gioco+gatti", "Topo peluche", "1,99", $cat, "gioco", "Morbidissimo topo di pelushe che simula i veri roditori. Ha una coda lunga e un sonaglio per farsi sentire quando si muove, stimolando il tuo gatto al suo innato piacere per la caccia.");
+
     $dogToy = new Toy("https://placehold.co/600x400?text=Gioco+cani", "Osso antimicrobico", "4,00", $dog, "gioco", "Giocattolo da masticazione. Nel giocattolo sono presenti additivazioni antimicrobiche con efficacia del 99,9%.");
-    var_dump($dogToy->getInfos());
 
-    // object from Kennel
-    $dogHouse = new Kennel("https://placehold.co/600x400?text=Cuccia+cane", "Cuccia rettangolare", "35,00", $dog, "cuccia", "Cuccia dal design moderno e leggero, di forma rettangolare con cuscino estraibile e imbottita di fibra di poliestere.", "100x900", true);
-    var_dump(($dogHouse->getInfos()));
+    $dogHouse = new Kennel("https://placehold.co/600x400?text=Cuccia+cane", "Cuccia rettangolare in legno", "215,00", $dog, "cuccia", "Cuccia dal design moderno e leggero, di forma rettangolare. Il legno permette la protezione dal freddo in inverno e la freschezza nelle estati torride", "96x112x105", false);
 
-    // objects from Item
-    $dogFood = new Item("https://placehold.co/600x400?text=Cibo+cani", "Croccantini per cani", "12,50", $dog, "cibo");
-    $catToy = new Item("https://placehold.co/600x400?text=Gioco+gatti", "Topo peluche", "1,99", $cat, "gioco");
-    var_dump($dogFood->getInfos());
-    var_dump($catToy->getInfos());
+    $catPillow = new Kennel("https://placehold.co/600x400?text=Cuccia+cane", "Cuscino ovale", "35,00", $dog, "cuccia", "Cuscino ovale imbottito in morbida fibra di poliestere. Fantasia: mongolfiere con colori a pastello. Made in Italy.", "80x100", true);
+
+    echo $catFood->getInfos()."<br>";
+    echo $dogFood->getInfos()."<br>";
+    echo $catToy->getInfos()."<br>";
+    echo $dogToy->getInfos()."<br>";
+    echo $catPillow->getInfos()."<br>";
+    echo $dogHouse->getInfos()."<br>";
 ?>
