@@ -32,6 +32,6 @@
     $titles = [
         "foods" => "Cibo",
         "toys" => "Giocattoli",
-        "kennels" => "Cuccie e cuscini"
+        "kennels" => "Cucce e cuscini"
     ]
 ?>
