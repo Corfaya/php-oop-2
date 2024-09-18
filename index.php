@@ -57,15 +57,34 @@
         }
     }
 
+    class Toy extends Item {
+        public $description;
+
+
+        public function __construct($_image, $_title, $_price, Category $_category, $_type, $_description)
+        {
+            parent::__construct($_image, $_title, $_price, $_category, $_type);
+            $this->description = $_description;
+        }
+
+        public function getInfos() {
+            return $this->description;
+        }
+    }
+
     // objects from Category
     $dog = new Category("icona", "cane");
     $cat = new Category("icona", "gatto");
     var_dump($dog);
     var_dump($cat);
 
-     // object from Food
-    $catFood = new Food("https://placehold.co/600x400?text=Cibo+gatti", "Umido monoproteico", "18,99", $cat, "cibo", "Umido completo e bilanciato. Ricette preparate rispondendo ad esifenze specifiche per gatti sterilizzati.", true);
+    // object from Food
+    $catFood = new Food("https://placehold.co/600x400?text=Cibo+gatti", "Umido monoproteico", "18,99", $cat, "cibo", "Umido completo e bilanciato. Ricette preparate rispondendo ad esigenze specifiche per gatti sterilizzati.", true);
     var_dump($catFood->getInfos());
+
+    // object from Toy
+    $dogToy = new Toy("https://placehold.co/600x400?text=Gioco+cani", "Osso antimicrobico", "4,00", $dog, "gioco", "Giocattolo da masticazione. Nel giocattolo sono presenti additivazioni antimicrobiche con efficacia del 99,9%.");
+    var_dump($dogToy->getInfos());
 
     // objects from Item
     $dogFood = new Item("https://placehold.co/600x400?text=Cibo+cani", "Croccantini per cani", "12,50", $dog, "cibo");
