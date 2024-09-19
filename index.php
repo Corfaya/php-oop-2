@@ -35,7 +35,7 @@ include __DIR__ . "/partials/db.php";
                     <?php foreach($array as $item) { ?>
                     <div class="col-12 col-md-4">
                         <div class="card h-100">
-                            <img src="<?php echo $item->image; ?>" class="card-img-top" alt="<?php echo $item->type; ?>">
+                            <img src="<?php echo $item->image; ?>" class="card-img-top img-fluid" alt="<?php echo $item->type; ?>">
                             <div class="card-body">
                                 <h3 class="card-title"><?php echo $item->title; ?></h3>
                                 <h5 class="card-text">Prezzo: <span class="badge text-bg-success"><?php echo $item->price; ?>€</span></h5>
