@@ -1,11 +1,5 @@
 <?php
 include __DIR__ . "/partials/db.php";
-// echo $catFood->getInfos()."<br>";
-// echo $dogFood->getInfos()."<br>";
-// echo $catToy->getInfos()."<br>";
-// echo $dogToy->getInfos()."<br>";
-// echo $catPillow->getInfos()."<br>";
-// echo $dogHouse->getInfos()."<br>";
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +32,7 @@ include __DIR__ . "/partials/db.php";
                             <img src="<?php echo $item->image; ?>" class="card-img-top img-fluid" alt="<?php echo $item->type; ?>">
                             <div class="card-body">
                                 <h3 class="card-title"><?php echo $item->title; ?></h3>
-                                <h5 class="card-text">Prezzo: <span class="badge text-bg-success"><?php echo $item->price; ?>€</span></h5>
+                                <h5 class="card-text">Prezzo: <span class="badge text-bg-success"><?php echo $item->getPrice(); ?></span></h5>
                                 <p class="fs-3"><?php echo $item->category->icon ?></p>
                                 <p><?php echo $item->description; ?></p>
                                 <p class="fw-bold"><?php echo $item->getInfos(); ?></p>
