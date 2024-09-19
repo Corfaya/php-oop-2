@@ -33,7 +33,7 @@ include __DIR__ . "/partials/db.php";
                             <div class="card-body">
                                 <h3 class="card-title"><?php echo $item->title; ?></h3>
                                 <h5 class="card-text">Prezzo: <span class="badge text-bg-success"><?php echo $item->getPrice(); ?></span></h5>
-                                <p class="fs-3"><?php echo $item->category->icon ?></p>
+                                <p class="fs-3"><?php echo $item->category->icon ?></p> <span><?php echo $item->getRating(); ?></span>
                                 <p><?php echo $item->description; ?></p>
                                 <p class="fw-bold"><?php echo $item->getInfos(); ?></p>
                             </div>
